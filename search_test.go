@@ -5,6 +5,7 @@ import (
     "github.com/droxer/quicksort"
     "math/rand"
     "testing"
+    "time"
 )
 
 var (
@@ -12,6 +13,11 @@ var (
     sortedArray100000  []int
     sortedArray1000000 []int
 )
+
+func init() {
+    seed := time.Now().Unix()
+    rand.Seed(seed)
+}
 
 func sortedRandomArray(n int) []int {
     sliced := rand.Perm(n * 20)[n : n*2-1]
